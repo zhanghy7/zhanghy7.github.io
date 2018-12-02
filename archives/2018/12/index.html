@@ -346,28 +346,25 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/软件架构模式/">
+        <a class="abstract-title" href="/2018/12/02/细说margin负值/">
             
-                <span>软件架构模式</span>
+                <span>细说margin负值</span>
         </a>
         <div class="abstract-content">
-            软件架构模式MVC
-特点：单向通信
-MVVM
-特点：
+            marginmargin作为css中最常用的属性之一，但是在使用过程中我发现对于margin的正值用的很顺畅，但是设置负值就会出现各种各样奇奇怪怪的现象，所以整理一份笔记帮助自己理解margin这个属性。
+正值正值没什么好说的，哪个方向设多少就在哪个方向增加多少外边距。
+负值这里主要整理一下负值的知识点。
+基础知识margin的设置会影响元素的表现形式，那么我们首先要知道决定元素表现形式的三要素，这会对之后的知识点的理解有重大帮助：
 
-view层和model层不再通信
-view和viewModel层双向绑定，同时改变，无需专门触发
-
-在前端来说各部分代表的是什么？Model数据（自定义的数据、服务器返回的数据）
-Viewhtml和css，用户能看到的东西
-ViewModel连接view和Model的桥梁，数据视图双向绑定。
-
+margin设置的方向
+元素是否浮动
+元素的定位方式具体表现形式元素无浮动无定位
+敌不动我动：margin-top和margin-left为负，元素向该方...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/02</span>
             </div>
             <!-- tags  -->
             

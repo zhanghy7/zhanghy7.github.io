@@ -346,97 +346,26 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/es6-class/">
+        <a class="abstract-title" href="/2018/12/07/Untitled/">
             
-                <span>es6-class</span>
+                <span>http之传输本质和content-type</span>
         </a>
         <div class="abstract-content">
-            es6class​    js提供的一个语法糖，用来更清晰的定义类，有constructor属性，constructor里边定义类的属性，constructor默认返回实例对象（即this），但也可以返回其他对象。
-​    它的方法都挂在prototype上。
-
-示例代码如下：
-Point &#123;1234567891011121314151617181920  constructor() &#123;    // ...  &#125;  toString() &#123;    // ...  &#125;  toValue() &#123;    // ...  &#125;...
+            http之前后端数据传递数据到底是以什么形式在网络中进行传输的？　　大家都知道，前后端通过数据请求和响应进行交互，进而完成整个网站功能。在这个过程中数据的传输就变得异常重要了，由此引发的困惑我许久的问题：“这个数据是以什么形式传递的呢？”
+　　网上的解释是网络数据是以 http协议(超文本协议) 进行传输的，那么这个数据在传递过程中是以文本形式传输的吗？答案是非也，所有网络数据都是以二进制流进行传输的，至于我们捕获到的文本形式的的请求其实是二进制数据流经过编辑器等处理过的文本信息。
+  注意点：http的超级文本其实就是二进制在http协议中的存在形式
+常见的请求方式HTTP/1.1 协...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/搭建个人博客-hexo/">
-            
-                <span>搭建个人博客(hexo)</span>
-        </a>
-        <div class="abstract-content">
-            使用hexo+git page搭建自己的博客新建项目前提是自己需要新建自己的git page，在下边的第三步进行关联。
-
-npm install -g hexo-cli
-hexo init myBlog
-进入项目找到_config.yml文件，修改配置：
-
-
-安装git部署插件：npm install hexo-deployer-git –save
-启动本地项目：hexo server
-
-自选主题
-主题在线查看传送门
-
-选好主题后进入myBlog下载主题。例如:git clone https://github.com/levblanc/hexo-theme-aero-dual.git t...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/webStorm主题设置/">
-            
-                <span>webStorm主题设置</span>
-        </a>
-        <div class="abstract-content">
-            webStorm主题设置
-一、下载主题
-两个地址：
-
-webStormThemes
-color Themes
-
-二、导入主题
-File-&gt;Import Setting
-
-选择自己下载的主题（jar包）后导入即可
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/07</span>
             </div>
             <!-- tags  -->
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="tools">tools</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="http">http</a>
     
 </div>
             
@@ -444,10 +373,6 @@ File-&gt;Import Setting
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
 </main>
             <!-- profile -->

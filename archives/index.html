@@ -346,6 +346,107 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/12/10/mysql常用命令/">
+            
+                <span>mysql常用命令</span>
+        </a>
+        <div class="abstract-content">
+            mysql常用命令因为我用的是mac，可能某些命令会跟windows上不一样。
+启动、重启和关闭前提是通过命令行启动服务的才能通过命令行关闭和重启。
+启动：/usr/local/mysql/support-files/mysql.server start```12重启：```sudo /usr/local/mysql/support-files/mysql.server restart
+关闭：/usr/local/mysql/support-files/mysql.server stop```1234## 登录、退出本地登录： ```mysql -u root -p
+(以用户名root身...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/10/mac命令行配置文件/">
+            
+                <span>mac命令行配置文件</span>
+        </a>
+        <div class="abstract-content">
+            ~/.bash_profile
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/10/api接口管理系统之rap2/">
+            
+                <span>api接口管理系统之rap2</span>
+        </a>
+        <div class="abstract-content">
+            简书
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/07/Untitled/">
+            
+                <span>http之传输本质和content-type</span>
+        </a>
+        <div class="abstract-content">
+            http之前后端数据传递数据到底是以什么形式在网络中进行传输的？　　大家都知道，前后端通过数据请求和响应进行交互，进而完成整个网站功能。在这个过程中数据的传输就变得异常重要了，由此引发的困惑我许久的问题：“这个数据是以什么形式传递的呢？”
+　　网上的解释是网络数据是以 http协议(超文本协议) 进行传输的，那么这个数据在传递过程中是以文本形式传输的吗？答案是非也，所有网络数据都是以二进制流进行传输的，至于我们捕获到的文本形式的的请求其实是二进制数据流经过编辑器等处理过的文本信息。
+  注意点：http的超级文本其实就是二进制在http协议中的存在形式
+常见的请求方式HTTP/1.1 协...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/07</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/12/06/非暴力沟通读书笔记一/">
             
                 <span>非暴力沟通读书笔记一</span>
@@ -546,110 +647,11 @@ class​    可以与普通的class共存，可以同时写(自己之前的写�
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/es6-class/">
-            
-                <span>es6-class</span>
-        </a>
-        <div class="abstract-content">
-            es6class​    js提供的一个语法糖，用来更清晰的定义类，有constructor属性，constructor里边定义类的属性，constructor默认返回实例对象（即this），但也可以返回其他对象。
-​    它的方法都挂在prototype上。
-
-示例代码如下：
-Point &#123;1234567891011121314151617181920  constructor() &#123;    // ...  &#125;  toString() &#123;    // ...  &#125;  toValue() &#123;    // ...  &#125;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/搭建个人博客-hexo/">
-            
-                <span>搭建个人博客(hexo)</span>
-        </a>
-        <div class="abstract-content">
-            使用hexo+git page搭建自己的博客新建项目前提是自己需要新建自己的git page，在下边的第三步进行关联。
-
-npm install -g hexo-cli
-hexo init myBlog
-进入项目找到_config.yml文件，修改配置：
-
-
-安装git部署插件：npm install hexo-deployer-git –save
-启动本地项目：hexo server
-
-自选主题
-主题在线查看传送门
-
-选好主题后进入myBlog下载主题。例如:git clone https://github.com/levblanc/hexo-theme-aero-dual.git t...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/webStorm主题设置/">
-            
-                <span>webStorm主题设置</span>
-        </a>
-        <div class="abstract-content">
-            webStorm主题设置
-一、下载主题
-两个地址：
-
-webStormThemes
-color Themes
-
-二、导入主题
-File-&gt;Import Setting
-
-选择自己下载的主题（jar包）后导入即可
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="tools">tools</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -861,9 +863,51 @@ File-&gt;Import Setting
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 13
         </div>
         <!-- search  -->
         
@@ -876,6 +920,26 @@ File-&gt;Import Setting
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/api接口管理系统之rap2/">api接口管理系统之rap2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/07</span><a class="archive-post-title" href="/2018/12/07/Untitled/">http之传输本质和content-type</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -899,17 +963,17 @@ File-&gt;Import Setting
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
         </li>
     
     
@@ -964,19 +1028,19 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
-    
-        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
-    
-        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
-    
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
     
-        <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
+        <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
+    
+        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
     
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     
-        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
+    
+        <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
+    
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

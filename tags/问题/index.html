@@ -346,24 +346,28 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/vue使用笔记/">
+        <a class="abstract-title" href="/2018/12/14/commond-is-not-found-mysql/">
             
-                <span>vue使用笔记</span>
+                <span>commond is not found: mysql</span>
         </a>
         <div class="abstract-content">
-            vue使用计算属性和监听计算属性(computed)缓存特性和使用场景​    依赖的数据变化时候此字段的数据跟着变化，所以这里就存在缓存的情况，如果依赖的数据没有变化，这时候这个数据本身也不变。
-可以加setterclass和style属性​    vue为这两属性做了增强，本来v-bind绑定的只能是字符串，这里支持对象和数组。
-class​    可以与普通的class共存，可以同时写(自己之前的写法都是一次只用一个，以为不能混用。。。)
-​    对象可以写在属性里，也可以写在data中、computed中。
-​    数组形式的话直接写字段名，最终渲染出来是字段对应的值。
-##...
+            commond is not found: mysql背景设备：mac电脑。现象：安装mysql完毕后，在命令行中输入mysql提示commond is not found: mysql
+原因　　系统环境中没有添加mysql的全局环境变量。那么首先我们要知道全局的环境变量定义在哪里，以及其中的变量如何能够初始化被正常使用，其实电脑中会存在这么一个文件存储所有的全局环境变量，mac叫.bash_profile，在每次打开终端的时候这个文件会被执行，之后它里边定义的变量就可以在任何目录下执行了。
+解决办法简单解决法
+通过管理员的身份修改.bash_profile文件，在其中添加export ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/14</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="问题">问题</a>
+    
+</div>
             
         </div>
     </article>

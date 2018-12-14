@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>zhanghy7</title>
+    <title>commond is not found: mysql · zhanghy7</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">苏秦陶侃博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">commond is not found: mysql</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">苏秦陶侃博客</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            commond is not found: mysql
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">289</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/12/14</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,46 +393,60 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/12/记一次git-stash被误删之后找回的经历/">
-            
-                <span>记一次git stash被误删之后找回的经历</span>
-        </a>
-        <div class="abstract-content">
-            记一次git stash被误删之后找回的经历⚠️⚠️⚠️长故事预警
-　　事情是这样的，有一个公共组件需要开发，然后我就在一个正在开发新需求的分支feature/batch-1203上进行开发这个公共组件，一切都是那么顺利，组件写好了，自测也没问题。💔但是等到要把这个组件发到线上的一个新的用于公共组件存放的分支上的时候，在我自己的feature/batch-1203分支上找不到我所写的组件了！！！💔
-解决git fsck –unreachable使用这个命令查看所有不可访问的对象。
-打出来的输出如下：
-  
-git show + 上图打出来的key（此处我是从后往前一个一个查的），用来...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="git">git</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="问题及解决">问题及解决</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="commond-is-not-found-mysql"><a href="#commond-is-not-found-mysql" class="headerlink" title="commond is not found: mysql"></a>commond is not found: mysql</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>设备：mac电脑。<br>现象：安装mysql完毕后，在命令行中输入mysql提示<code>commond is not found: mysql</code></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>　　系统环境中没有添加mysql的全局环境变量。那么首先我们要知道全局的环境变量定义在哪里，以及其中的变量如何能够初始化被正常使用，其实电脑中会存在这么一个文件存储所有的全局环境变量，mac叫.bash_profile，在每次打开终端的时候这个文件会被执行，之后它里边定义的变量就可以在任何目录下执行了。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="简单解决法"><a href="#简单解决法" class="headerlink" title="简单解决法"></a>简单解决法</h3><ol>
+<li>通过管理员的身份修改.bash_profile文件，在其中添加<code>export PATH=$PATH:/usr/local/mysql/bin</code>之后保存。</li>
+<li>重启命令行工具或者在当前命令行中在运行<code>source ~/.bash_profile</code>即可生效。<br>⚠️<em>但是这种方式会在终端重启之后失效。</em><h3 id="升级解决法"><a href="#升级解决法" class="headerlink" title="升级解决法"></a>升级解决法</h3>在/.zshrc文件中添加这个命令<code>source ~/.bash_profile</code>，因为每次终端在打开的时候都会执行这个文件。</li>
+</ol>
+<blockquote>
+<p>参考文献</p>
+<ol>
+<li><a href="https://blog.csdn.net/yi412/article/details/11523525" target="_blank" rel="noopener">https://blog.csdn.net/yi412/article/details/11523525</a></li>
+</ol>
+</blockquote>
+
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
+            </p><p>原文链接：<a href="http://zhanghy7.github.io/2018/12/14/commond-is-not-found-mysql/">http://zhanghy7.github.io/2018/12/14/commond-is-not-found-mysql/</a>
+            </p><p>发表日期：<a href="http://zhanghy7.github.io/2018/12/14/commond-is-not-found-mysql/">December 14th 2018, 12:50:00 pm</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2018/12/14/commond-is-not-found-mysql/">December 14th 2018, 5:31:53 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/12/12/记一次git-stash被误删之后找回的经历/" title="记一次git stash被误删之后找回的经历">
+                    <div class="prevTitle">记一次git stash被误删之后找回的经历</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -462,6 +531,24 @@ git show + 上图打出来的key（此处我是从后往前一个一个查的）
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#commond-is-not-found-mysql"><span class="toc-number">1.</span> <span class="toc-text">commond is not found: mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-number">1.1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">1.2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决办法"><span class="toc-number">1.3.</span> <span class="toc-text">解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单解决法"><span class="toc-number">1.3.1.</span> <span class="toc-text">简单解决法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级解决法"><span class="toc-number">1.3.2.</span> <span class="toc-text">升级解决法</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -895,6 +982,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

@@ -264,6 +264,12 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="计算机基础">计算机基础</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">667</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
@@ -398,6 +404,7 @@ height:50vh;
         <h1 id="计算机基础知识"><a href="#计算机基础知识" class="headerlink" title="计算机基础知识"></a>计算机基础知识</h1><h2 id="计算机存储与软硬链接"><a href="#计算机存储与软硬链接" class="headerlink" title="计算机存储与软硬链接"></a>计算机存储与软硬链接</h2><p>　　文件存储在硬盘上，硬盘存储的最小单位是扇区（sector，每个扇区可以存储512B大小的数据）。而操作系统读取文件按照块来读取（多个连续的扇区），也就是说操作系统读取文件的最小存取单位是块（block，通常是4KB）。</p>
 <p>　　除了存储文件数据外，计算机还会存储文件的元信息（文件的大小、创建者、文件的时间戳、读写执行的权限等信息），这种存储文件元信息的结构就叫inode，我们可以使用stat来查看文件的元信息。每一个inode都有一个唯一的id，linux系统中通过inode的号码来识别文件。在linux中目录也是一种文件，该文件由inode和文件名组成。</p>
 <p>查看目录文件的内容：<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fy9l7ar8ndj30h101y764.jpg" alt="image-20181217113530225"></p>
+<blockquote>
 <p>总结：</p>
 <ol>
 <li>硬盘存取的基本单位是扇区(sector，512B)，系统存储的基本单位是块(block，4KB)</li>
@@ -405,6 +412,7 @@ height:50vh;
 <li>每个inode都有一个唯一的号码，系统用这个号码去识别文件。</li>
 <li>linux中目录也是一种文件，由文件名和inode的id组成。</li>
 </ol>
+</blockquote>
 <h3 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h3><p>　　一般情况下一个文件名对应一个inode，但是linux允许多个文件名对应一个inode。这表示我们可以用不同的文件名去访问同一个文件，并且删除源文件不影响其他文件，修改源文件所有文件内容都被修改，这种机制就叫硬链接。</p>
 <p>  不能用于目录，只能用于文件。</p>
 <p>命令：ln source target（把source指向target）</p>
@@ -440,8 +448,8 @@ height:50vh;
         <div class="license-wrapper">
             <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
             </p><p>原文链接：<a href="http://zhanghy7.github.io/2018/12/17/计算机基础知识/">http://zhanghy7.github.io/2018/12/17/计算机基础知识/</a>
-            </p><p>发表日期：<a href="http://zhanghy7.github.io/2018/12/17/计算机基础知识/">December 17th 2018, 11:18:58 am</a>
-            </p><p>更新日期：<a href="http://zhanghy7.github.io/2018/12/17/计算机基础知识/">December 17th 2018, 11:39:24 pm</a>
+            </p><p>发表日期：<a href="http://zhanghy7.github.io/2018/12/17/计算机基础知识/">December 17th 2018, 11:18:00 am</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2018/12/17/计算机基础知识/">December 17th 2018, 11:41:14 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -868,6 +876,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 21
@@ -966,12 +984,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
         </li>
     
     
@@ -1010,6 +1028,8 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
     
+        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -1043,17 +1063,17 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
-    
         <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
     
-        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
+        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
     
         <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
     
-        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
+        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
     
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+    
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     

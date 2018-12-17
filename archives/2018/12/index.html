@@ -346,6 +346,121 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/12/17/node包调试/">
+            
+                <span>node包调试</span>
+        </a>
+        <div class="abstract-content">
+            node包调试我们在开发node模块的时候一定会需要调试，那么都有哪些方式调试node模块呢？今天只谈现在的最新的调试方式:
+npm link软链方式进行新模块的使用(包括项目内的使用和直接使用模块)软链方式(npm link):https://github.com/atian25/blog/issues/17
+模块调试vscode
+跟上图这样配置好之后在代码中打断点，再到debugger模式这块点击“启动调试”即可。
+
+这里launch.json中常用参数：
+
+args:命令行工具中传入的参数。
+
+
+webStormrun=&gt;edit configuration
+
+参考文献
+
+v...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/17/计算机基础知识/">
+            
+                <span>计算机基础知识</span>
+        </a>
+        <div class="abstract-content">
+            计算机基础知识计算机存储：文件存储在硬盘上，硬盘存储的最小单位是扇区（sector，每个扇区可以存储512B大小的数据）。而操作系统读取文件按照块来读取（多个连续的扇区），也就是说操作系统读取文件的最小存取单位是块（block，通常是4KB）。
+除了存储文件数据外，计算机还会存储文件的元信息（文件的大小、创建者、文件的时间戳、读写执行的权限等信息），这种存储文件元信息的结构就叫inode，我们可以使用stat来查看文件的元信息。每一个inode都有一个唯一的id，linux系统中通过inode的号码来识别文件。在linux中目录也是一种文件，该文件由inode和文件名组成。
+查看目录文件...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/15/对全局node包的灵魂拷问/">
+            
+                <span>对全局node包的灵魂拷问</span>
+        </a>
+        <div class="abstract-content">
+            Why can you run anywhere  after ‘npm i -g ‘?　　我们经常在全局安装node包之后在任意的目录下都能顺利的执行该命令，比如node i -g nodeA，之后就可以在任意目录下使用nodeA这个命令，但这么神奇的现象是为什么呢？
+  首先我们要知道什么命令才能在全局运行，这里就要涉及shell相关的知识了，其实是这样的：在linux系统中有这么几个地方的脚本是可以在任意目录下运行的：
+    全局安装后的node包的二进制脚本文件其实都存放在/usr/local/bin下，比我的所有的全局命令：
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/14/liver-server搭建本地临时服务/">
+            
+                <span>liver-server搭建本地临时服务</span>
+        </a>
+        <div class="abstract-content">
+            live-server搭建本地临时服务　　有时候我们需要开发一些临时的、非完整项目的静态文件,这个时候往往只能页面写好之后在浏览器中打开查看，并且在修改了文件之后得手动刷新页面才能看到效果，但是有没有一种方式让我们的临时文件也能像一个完整的项目去热更新呢？
+　　答案是有的，可以使用liver-server进行快速查看以及文件修改后浏览器的热更新。
+live-server是什么它是一个简单的node app，它服务于工作目录及其子目录。启动之后就可以在浏览器中查看各个文件夹下的资源。
+图示：
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/14</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/12/14/commond-is-not-found-mysql/">
             
                 <span>commond is not found: mysql</span>
@@ -530,123 +645,11 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/api接口管理系统之rap2/">
-            
-                <span>api接口管理系统之rap2</span>
-        </a>
-        <div class="abstract-content">
-            简书
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/07/http之数据传输原理和content-type/">
-            
-                <span>http之数据传输原理和content-type</span>
-        </a>
-        <div class="abstract-content">
-            http之数据传输原理和content-type数据到底是以什么形式在网络中进行传输的？　　大家都知道，前后端通过数据请求和响应进行交互，进而完成整个网站功能。在这个过程中数据的传输就变得异常重要了，由此引发的困惑我许久的问题：“这个数据是以什么形式传递的呢？”
-　　网上的解释是网络数据是以 http协议(超文本协议) 进行传输的，那么这个数据在传递过程中是以文本形式传输的吗？答案是非也，所有网络数据都是以二进制流进行传输的，至于我们捕获到的文本形式的的请求其实是二进制数据流经过编辑器等处理过的文本信息。
-  注意点：http的超级文本其实就是二进制在http协议中的存在形式
-常见的请求...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="http">http</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/06/非暴力沟通读书笔记一/">
-            
-                <span>非暴力沟通读书笔记一</span>
-        </a>
-        <div class="abstract-content">
-            非暴力沟通读书笔记一四要素非暴力沟通的要素：观察、感受、需要、要求。
-　　我们在沟通过程中按照这四个方式把自己的想法完整的表达出来，这样的表达方式既能把自己的思想表达出来又能让对方明白你的需求，避免因为某一环节的缺失造成双方的沟通障碍，进而引发矛盾。
-
-精彩故事片段
-
-　　一位母亲对青春期的儿子说：“弗利克斯，看到咖啡桌角下你的两双脏袜子，我很不高兴，我更需要的是干净的环境，请你把它们放到洗衣机里去洗掉”。
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/02/细说margin负值/">
-            
-                <span>细说margin负值</span>
-        </a>
-        <div class="abstract-content">
-            marginmargin作为css中最常用的属性之一，但是在使用过程中我发现对于margin的正值用的很顺畅，但是设置负值就会出现各种各样奇奇怪怪的现象，所以整理一份笔记帮助自己理解margin这个属性。
-正值正值没什么好说的，哪个方向设多少就在哪个方向增加多少外边距。
-负值这里主要整理一下负值的知识点。
-基础知识margin的设置会影响元素的表现形式，那么我们首先要知道决定元素表现形式的三要素，这会对之后的知识点的理解有重大帮助：
-
-margin设置的方向
-元素是否浮动
-元素的定位方式具体表现形式元素无浮动无定位
-敌不动我动：margin-top和margin-left为负，元素向该方...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/12/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/12/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -964,9 +967,45 @@ margin设置的方向
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 21
         </div>
         <!-- search  -->
         
@@ -979,6 +1018,26 @@ margin设置的方向
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/node包调试/">node包调试</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/计算机基础知识/">计算机基础知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2018/12/15/对全局node包的灵魂拷问/">对全局node包的灵魂拷问</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href="/2018/12/14/liver-server搭建本地临时服务/">liver-server搭建本地临时服务</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1032,12 +1091,12 @@ margin设置的方向
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
@@ -1070,21 +1129,21 @@ margin设置的方向
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
-    
-        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
-    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
     
-        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
+    
+        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+    
+        <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1119,21 +1178,21 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
-    
         <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
-    
-        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
     
         <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
     
-        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
+        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
     
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+    
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     
         <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+    
+        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>zhanghy7</title>
+    <title>node包调试 · zhanghy7</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">苏秦陶侃博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">node包调试</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">苏秦陶侃博客</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            node包调试
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">189</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/12/17</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,259 +393,65 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/专业英文单词学习/">
-            
-                <span>专业英文单词学习</span>
-        </a>
-        <div class="abstract-content">
-            英文单词
-并行： parallel
-阻塞： stalled
-二进制：binary
-堆：heap
-队列：queue
-栈：stack
-进程：process
-线程：thread
-问题：issue
-仪表盘：dashboard
-用于文件内的字符串的查找：grep
-形实转换程序：thunk
-构成、组成：compose
-回来的、回家的：redux
-重构：refactor
-章：chapter
-账号：account
-订阅：subscription
-发布：publish
-教程：tutorial
-博客：blog
-社区；团体：community
-直到；就…而言：as far as
-传说；冒险故事：saga
-就…...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="English">English</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="node包调试"><a href="#node包调试" class="headerlink" title="node包调试"></a>node包调试</h1><p>我们在开发node模块的时候一定会需要调试，那么都有哪些方式调试node模块呢？今天只谈现在的最新的调试方式:</p>
+<h2 id="npm-link"><a href="#npm-link" class="headerlink" title="npm link"></a>npm link</h2><p>软链方式进行新模块的使用(包括项目内的使用和直接使用模块)<br>软链方式(npm link):<a href="https://github.com/atian25/blog/issues/17" target="_blank" rel="noopener">https://github.com/atian25/blog/issues/17</a></p>
+<h2 id="模块调试"><a href="#模块调试" class="headerlink" title="模块调试"></a>模块调试</h2><h3 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h3><p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fy9xh2n1ufj31ka0t4jxk.jpg" alt="image-20181217184009410"></p>
+<p>跟上图这样配置好之后在代码中打断点，再到debugger模式这块点击“启动调试”即可。</p>
+<blockquote>
+<p>这里launch.json中常用参数：</p>
+<ol>
+<li>args:命令行工具中传入的参数。</li>
+</ol>
+</blockquote>
+<h3 id="webStorm"><a href="#webStorm" class="headerlink" title="webStorm"></a>webStorm</h3><p>run=&gt;edit configuration<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fya4d29c71j31ba0u0afq.jpg" alt="image-20181217223830106"><br><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fya4dzn25oj31ki0u0alf.jpg" alt="image-20181217223922069"></p>
+<blockquote>
+<p>参考文献</p>
+<ol>
+<li>vscode调试官方文档：<a href="https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/%E7%BC%96%E8%BE%91%E5%99%A8/%E8%B0%83%E8%AF%95.html" target="_blank" rel="noopener">https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/%E7%BC%96%E8%BE%91%E5%99%A8/%E8%B0%83%E8%AF%95.html</a></li>
+</ol>
+</blockquote>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/软件架构模式/">
-            
-                <span>软件架构模式</span>
-        </a>
-        <div class="abstract-content">
-            软件架构模式MVC
-特点：单向通信
-MVVM
-特点：
-
-view层和model层不再通信
-view和viewModel层双向绑定，同时改变，无需专门触发
-
-在前端来说各部分代表的是什么？Model数据（自定义的数据、服务器返回的数据）
-Viewhtml和css，用户能看到的东西
-ViewModel连接view和Model的桥梁，数据视图双向绑定。
-
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
+            </p><p>原文链接：<a href="http://zhanghy7.github.io/2018/12/17/node包调试/">http://zhanghy7.github.io/2018/12/17/node包调试/</a>
+            </p><p>发表日期：<a href="http://zhanghy7.github.io/2018/12/17/node包调试/">December 17th 2018, 5:38:44 pm</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2018/12/17/node包调试/">December 17th 2018, 10:42:05 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/vue使用笔记/">
-            
-                <span>vue使用笔记</span>
-        </a>
-        <div class="abstract-content">
-            vue使用计算属性和监听计算属性(computed)缓存特性和使用场景​    依赖的数据变化时候此字段的数据跟着变化，所以这里就存在缓存的情况，如果依赖的数据没有变化，这时候这个数据本身也不变。
-可以加setterclass和style属性​    vue为这两属性做了增强，本来v-bind绑定的只能是字符串，这里支持对象和数组。
-class​    可以与普通的class共存，可以同时写(自己之前的写法都是一次只用一个，以为不能混用。。。)
-​    对象可以写在属性里，也可以写在data中、computed中。
-​    数组形式的话直接写字段名，最终渲染出来是字段对应的值。
-##...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/hybrid/">
-            
-                <span>hybrid</span>
-        </a>
-        <div class="abstract-content">
-            hybrid特征
-可用的系统、网络资源和web app有本质的区别。
-支持更新的浏览器特性。
-可实现离线应用。利用h5的缓存机制和native自身的文件写入。
-需要兼容多版本多机型的设备。
-可以调用native的原生功能。
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/30/es6-class/">
-            
-                <span>es6-class</span>
-        </a>
-        <div class="abstract-content">
-            es6class​    js提供的一个语法糖，用来更清晰的定义类，有constructor属性，constructor里边定义类的属性，constructor默认返回实例对象（即this），但也可以返回其他对象。
-​    它的方法都挂在prototype上。
-
-示例代码如下：
-Point &#123;1234567891011121314151617181920  constructor() &#123;    // ...  &#125;  toString() &#123;    // ...  &#125;  toValue() &#123;    // ...  &#125;...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/搭建个人博客-hexo/">
-            
-                <span>搭建个人博客(hexo)</span>
-        </a>
-        <div class="abstract-content">
-            使用hexo+git page搭建自己的博客新建项目前提是自己需要新建自己的git page，在下边的第三步进行关联。
-
-npm install -g hexo-cli
-hexo init myBlog
-进入项目找到_config.yml文件，修改配置：
-
-
-安装git部署插件：npm install hexo-deployer-git –save
-启动本地项目：hexo server
-
-自选主题
-主题在线查看传送门
-
-选好主题后进入myBlog下载主题。例如:git clone https://github.com/levblanc/hexo-theme-aero-dual.git t...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/29/webStorm主题设置/">
-            
-                <span>webStorm主题设置</span>
-        </a>
-        <div class="abstract-content">
-            webStorm主题设置
-一、下载主题
-两个地址：
-
-webStormThemes
-color Themes
-
-二、导入主题
-File-&gt;Import Setting
-
-选择自己下载的主题（jar包）后导入即可
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="tools">tools</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/12/17/计算机基础知识/" title="计算机基础知识">
+                    <div class="prevTitle">计算机基础知识</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -675,6 +536,24 @@ File-&gt;Import Setting
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#node包调试"><span class="toc-number">1.</span> <span class="toc-text">node包调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-link"><span class="toc-number">1.1.</span> <span class="toc-text">npm link</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块调试"><span class="toc-number">1.2.</span> <span class="toc-text">模块调试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode"><span class="toc-number">1.2.1.</span> <span class="toc-text">vscode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webStorm"><span class="toc-number">1.2.2.</span> <span class="toc-text">webStorm</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1166,6 +1045,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

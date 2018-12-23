@@ -346,6 +346,161 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/11/30/软件架构模式/">
+            
+                <span>软件架构模式</span>
+        </a>
+        <div class="abstract-content">
+            软件架构模式MVC
+特点：单向通信
+MVVM
+特点：
+
+view层和model层不再通信
+view和viewModel层双向绑定，同时改变，无需专门触发
+
+在前端来说各部分代表的是什么？Model数据（自定义的数据、服务器返回的数据）
+Viewhtml和css，用户能看到的东西
+ViewModel连接view和Model的桥梁，数据视图双向绑定。
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/11/30/vue使用笔记/">
+            
+                <span>vue使用笔记</span>
+        </a>
+        <div class="abstract-content">
+            vue使用计算属性和监听计算属性(computed)缓存特性和使用场景​    依赖的数据变化时候此字段的数据跟着变化，所以这里就存在缓存的情况，如果依赖的数据没有变化，这时候这个数据本身也不变。
+可以加setterclass和style属性​    vue为这两属性做了增强，本来v-bind绑定的只能是字符串，这里支持对象和数组。
+class​    可以与普通的class共存，可以同时写(自己之前的写法都是一次只用一个，以为不能混用。。。)
+​    对象可以写在属性里，也可以写在data中、computed中。
+​    数组形式的话直接写字段名，最终渲染出来是字段对应的值。
+##...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/11/30/hybrid/">
+            
+                <span>hybrid</span>
+        </a>
+        <div class="abstract-content">
+            hybrid特征
+可用的系统、网络资源和web app有本质的区别。
+支持更新的浏览器特性。
+可实现离线应用。利用h5的缓存机制和native自身的文件写入。
+需要兼容多版本多机型的设备。
+可以调用native的原生功能。
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/11/30/es6-class/">
+            
+                <span>es6-class</span>
+        </a>
+        <div class="abstract-content">
+            es6class​    js提供的一个语法糖，用来更清晰的定义类，有constructor属性，constructor里边定义类的属性，constructor默认返回实例对象（即this），但也可以返回其他对象。
+​    它的方法都挂在prototype上。
+
+示例代码如下：
+Point &#123;1234567891011121314151617181920  constructor() &#123;    // ...  &#125;  toString() &#123;    // ...  &#125;  toValue() &#123;    // ...  &#125;...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/30</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/11/29/搭建个人博客-hexo/">
+            
+                <span>搭建个人博客(hexo)</span>
+        </a>
+        <div class="abstract-content">
+            使用hexo+git page搭建自己的博客新建项目前提是自己需要新建自己的git page，在下边的第三步进行关联。
+
+npm install -g hexo-cli
+hexo init myBlog
+进入项目找到_config.yml文件，修改配置：
+
+
+安装git部署插件：npm install hexo-deployer-git –save
+启动本地项目：hexo server
+
+自选主题
+主题在线查看传送门
+
+选好主题后进入myBlog下载主题。例如:git clone https://github.com/levblanc/hexo-theme-aero-dual.git t...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/29</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/11/29/webStorm主题设置/">
             
                 <span>webStorm主题设置</span>
@@ -768,9 +923,32 @@ File-&gt;Import Setting
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -783,6 +961,31 @@ File-&gt;Import Setting
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href="/2018/12/22/react项目实现的ssr/">react项目实现的ssr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/移动端适配方案/">[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/你经常提到的SEO你知道懂吗？/">SEO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href="/2018/12/19/js之原型链/">js之原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href="/2018/12/18/css基础之nth-child和nth-of-type/">css基础之nth-child和nth-of-type</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -826,12 +1029,12 @@ File-&gt;Import Setting
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
         </li>
     
     
@@ -856,17 +1059,12 @@ File-&gt;Import Setting
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
@@ -877,6 +1075,11 @@ File-&gt;Import Setting
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
         </li>
     
     
@@ -896,21 +1099,23 @@ File-&gt;Import Setting
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     
-        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
-    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
     
         <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
     
-        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
     
+        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+    
         <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="js"><span class="iconfont-archer">&#xe606;</span>js</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -957,9 +1162,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
+        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+    
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     
-        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+        <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
+    
+        <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
+    
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

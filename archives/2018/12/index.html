@@ -346,6 +346,144 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/12/22/react项目实现的ssr/">
+            
+                <span>react项目实现的ssr</span>
+        </a>
+        <div class="abstract-content">
+            react项目实现的ssr名词解释
+同构：开发一套多个平台都可以跑的代码，例如同时可以在client和node端跑。https://juejin.im/entry/5b1631085188257d492adc9e
+ssr(server-side rendering)：服务端渲染
+
+关键APIreact提供了四个方法将虚拟dom转为html文本：
+服务器端客户端皆可用：
+
+ReactDOMServer.renderToString(element)
+ReactDOMServer.renderToStaticMarkup(element)
+
+服务器端可用：
+
+ReactDOMServer.r...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/21/移动端适配方案/">
+            
+                <span>[Untitled Post]</span>
+        </a>
+        <div class="abstract-content">
+            移动端适配方案http://www.vsoui.com/2017/03/15/mobile-FE-Adaptive/
+移动端bughttps://github.com/markyun/My-blog/issues/88
+长按元素click事件不触发的原因：移动端click事件一般要延迟300ms，因为浏览器会在这个事件段内去判断是否是double click，在300ms内手指离开屏幕click触发，但是长按超过300ms后浏览器没检测到第二次点击不能触发double click事件，并且这时候click也不会被触发了。
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/21/你经常提到的SEO你知道懂吗？/">
+            
+                <span>SEO</span>
+        </a>
+        <div class="abstract-content">
+            SEO
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/21</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/19/js之原型链/">
+            
+                <span>js之原型链</span>
+        </a>
+        <div class="abstract-content">
+            js之原型链由一个简单的对象实例说起：
+12345678910111213141516171819function Person (name, age) &#123;  this.name = name  this.age = age&#125;Person.prototype.getName = function () &#123;  console.log(this.name)&#125;const person = new Person('Tom', 12)person.getName() // Tomconsole.log(person.__proto__) // &#123;g...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/18/css基础之nth-child和nth-of-type/">
+            
+                <span>css基础之nth-child和nth-of-type</span>
+        </a>
+        <div class="abstract-content">
+            css基础之nth-child和nth-of-type
+参考文献
+
+匹配除第一个元素外的子元素
+segment总结
+
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/12/17/node包调试/">
             
                 <span>node包调试</span>
@@ -488,164 +626,6 @@ live-server是什么它是一个简单的node app，它服务于工作目录及�
         <a class="post-tag" href="javascript:void(0);" data-tags="问题">问题</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/12/记一次git-stash被误删之后找回的经历/">
-            
-                <span>记一次git stash被误删之后找回的经历</span>
-        </a>
-        <div class="abstract-content">
-            记一次git stash被误删之后找回的经历⚠️⚠️⚠️长故事预警
-　　事情是这样的，有一个公共组件需要开发，然后我就在一个正在开发新需求的分支feature/batch-1203上进行开发这个公共组件，一切都是那么顺利，组件写好了，自测也没问题。💔但是等到要把这个组件发到线上的一个新的用于公共组件存放的分支上的时候，在我自己的feature/batch-1203分支上找不到我所写的组件了！！！💔
-解决git fsck –unreachable使用这个命令查看所有不可访问的对象。
-打出来的输出如下：
-  
-git show + 上图打出来的key（此处我是从后往前一个一个查的），用来...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="git">git</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="问题及解决">问题及解决</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/12/js对象的四个底层属性/">
-            
-                <span>js对象属性的控制</span>
-        </a>
-        <div class="abstract-content">
-            js对象的六个底层属性js中有两个个可以修改或者定义对象属性的方法：defineProperty(object,name,discriptor)和defineProperties(object, props)。
-defineProperty参数解释：
-
-object：要操作的对象
-name：要定义或修改的属性的名称。
-discriptor：是个对象，其中包含四个用于操作第二步中name的属性。
-
-返回值：
-　　被传递给函数的修改后的对象
-下边分别看一下discriptor中都有哪四个属性，它们分别有什么作用：
-configurable这个属性用于控制此属性是否可被修改或删除，为true时...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="javascript">javascript</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/12/es6之修饰器/">
-            
-                <span>es6之修饰器</span>
-        </a>
-        <div class="abstract-content">
-            es6之修饰器类的修饰对类的修饰，这里的修饰器就是一个对类进行处理的 函数。
-通过修饰器我们可以对类进行两种处理，分别是给类本身添加静态方法和给类添加实例方法：
-12345678910// 给类添加静态方法function decorator (target) &#123;  target.getName = function () &#123;    console.log(target.name)  &#125;&#125;@decoratorclass MyClass &#123;&#125;MyClass.getName() // MyClass
-1234567891011// ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/mysql常用命令/">
-            
-                <span>mysql常用命令</span>
-        </a>
-        <div class="abstract-content">
-            mysql常用命令因为我用的是mac，可能某些命令会跟windows上不一样。
-启动、重启和关闭前提是通过命令行启动服务的才能通过命令行关闭和重启。
-启动：/usr/local/mysql/support-files/mysql.server start```12重启：```sudo /usr/local/mysql/support-files/mysql.server restart
-关闭：/usr/local/mysql/support-files/mysql.server stop```1234## 登录、退出本地登录： ```mysql -u root -p
-(以用户名root身...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/mac命令行配置文件/">
-            
-                <span>mac命令行配置文件</span>
-        </a>
-        <div class="abstract-content">
-            ~/.bash_profile
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -1038,9 +1018,32 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 21
+        Total : 26
         </div>
         <!-- search  -->
         
@@ -1053,6 +1056,31 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href="/2018/12/22/react项目实现的ssr/">react项目实现的ssr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/移动端适配方案/">[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/你经常提到的SEO你知道懂吗？/">SEO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href="/2018/12/19/js之原型链/">js之原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href="/2018/12/18/css基础之nth-child和nth-of-type/">css基础之nth-child和nth-of-type</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1096,12 +1124,12 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
         </li>
     
     
@@ -1126,17 +1154,12 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
@@ -1147,6 +1170,11 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
         </li>
     
     
@@ -1166,21 +1194,23 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     
-        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
-    
         <span class="sidebar-tag-name" data-tags="javascript"><span class="iconfont-archer">&#xe606;</span>javascript</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
     
         <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
     
-        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
     
+        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+    
         <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="js"><span class="iconfont-archer">&#xe606;</span>js</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1227,9 +1257,17 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
+        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+    
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     
-        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+        <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
+    
+        <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
+    
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

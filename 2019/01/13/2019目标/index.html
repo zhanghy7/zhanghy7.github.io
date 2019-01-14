@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>js对象属性的控制 · zhanghy7</title>
+    <title>zhanghy7</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">苏秦陶侃博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">js对象属性的控制</a>
+                <a href="#" class="post-name"></a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            js对象属性的控制
+            [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -264,20 +264,14 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="js">js</a>
-    
-</div>
-                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">322</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">594</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/12/12</span>
+                    <span class="post-intro-time">2019/01/13</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,38 +395,49 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="js对象的六个底层属性"><a href="#js对象的六个底层属性" class="headerlink" title="js对象的六个底层属性"></a>js对象的六个底层属性</h1><p>js中有两个个可以修改或者定义对象属性的方法：defineProperty(object,name,discriptor)和defineProperties(object, props)。</p>
-<h2 id="defineProperty"><a href="#defineProperty" class="headerlink" title="defineProperty"></a>defineProperty</h2><p>参数解释：</p>
+        <p>19年目标：</p>
+<p>搞点东西出来：</p>
+<p>痛点：hexo admin插件另起标题时一打字连带的打出了上一个标题中的所有正文。。。</p>
+<p>痛点：使用北京公交集团查询公交的时候信息不准确，导致上班迟到。具体情况是从家往出走看着再有三站就到我这了，结果等了10分钟后再看显示还有10站。。心里一万匹草泥马。。。有这时间我都快走到地铁站了。。。</p>
+<p>思考：自己写一个查询实时公交的东西</p>
+<p>技术上：</p>
 <ol>
-<li>object：要操作的对象</li>
-<li>name：要定义或修改的属性的名称。</li>
-<li>discriptor：是个对象，其中包含四个用于操作第二步中name的属性。</li>
+<li>性能优化方面，着重学习谷歌开发者网站。</li>
+<li>自己负责的项目保质保量完成，delay次数少于2次，bug量能够减少到3个每天。</li>
+<li>项目代码都有注释、对所做项目有使用和开发已经项目阶段性完成的的文档整理、总结，</li>
+<li>vue、react框架的熟练掌握，为项目输出高质量的通用组件2个以上。</li>
+<li>发现开发中的痛点(至少两个)，并给出解决方案。</li>
+<li>两篇高质量文章输出，三次高质量的分享。</li>
+<li>再看一遍红宝书、并深入学习es6，让自己的js水平达到高级水平。</li>
+<li>underscore源码的重点部分阅读学习完。</li>
+<li>react源码阅读和学习完成。</li>
+<li>熟练掌握css的常见布局实现方式，并深入了解原理。</li>
+<li>http协议的学习。</li>
+<li>掌握常见的数据结构和算法，能理解思想、学会思考。</li>
+<li>年底技术水平能到到p6。</li>
 </ol>
-<p>返回值：</p>
-<p>　　被传递给函数的修改后的对象</p>
-<p>下边分别看一下discriptor中都有哪四个属性，它们分别有什么作用：</p>
-<h3 id="configurable"><a href="#configurable" class="headerlink" title="configurable"></a>configurable</h3><p>这个属性用于控制此属性是否可被修改或删除，为true时候可被修改也可被删除，为false则相反。 <em>默认为true</em></p>
-<h3 id="enumerable"><a href="#enumerable" class="headerlink" title="enumerable"></a>enumerable</h3><p>当且仅当该属性的enumerable为true时，该属性才能够出现在对象的可枚举属性(for in, Object.keys()可遍历)中。默认为 true。</p>
-<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><p>属性值，可以为任何有效的值，默认为undefined</p>
-<h3 id="writable"><a href="#writable" class="headerlink" title="writable"></a>writable</h3><p>控制value是否可被修改</p>
-<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><p>在访问这个属性时候返回的value值。</p>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>在给这个属性赋值或者修改值时候会执行这个方法。</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Tom'</span>,</span><br><span class="line">  age: <span class="number">23</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// Tom</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(person)) <span class="comment">// [name,age]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">'name'</span>, &#123;</span><br><span class="line">  configurable: <span class="literal">false</span>,</span><br><span class="line">  enumerable: <span class="literal">false</span>,</span><br><span class="line">  value: <span class="string">''</span>,</span><br><span class="line">  writable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">//</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(person)) <span class="comment">// [age]</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参考文献</p>
+<p>业务上：</p>
 <ol>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">MDN</a></li>
+<li>积极推动项目进度，明确知道各个角色的时间点和进度。</li>
+<li>项目评审中至少能提出2个以上问题。</li>
 </ol>
-</blockquote>
+<p>软素质上：</p>
+<ol>
+<li>阅读2本非技术方面的书（我以前基本从来不看非技术的书，包括小说，所以我感觉2本对我来说不少了hh）。</li>
+<li>和别人沟通中用“多多思考”来替换以前的“不知道”。。</li>
+</ol>
+<p>2~3年计划：</p>
+<p>技术上在前端成长到高级水平，并熟悉服务器端，熟悉整套网站开发、上线和运维的整体流程。</p>
+<p>业务上能够成长为一个非常熟悉公司内部业务，并能够通过自己的努力去协调各个方面推动业务的顺利落地。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
-            </p><p>原文链接：<a href="http://zhanghy7.github.io/2018/12/12/js对象的四个底层属性/">http://zhanghy7.github.io/2018/12/12/js对象的四个底层属性/</a>
-            </p><p>发表日期：<a href="http://zhanghy7.github.io/2018/12/12/js对象的四个底层属性/">December 12th 2018, 2:46:00 pm</a>
-            </p><p>更新日期：<a href="http://zhanghy7.github.io/2018/12/12/js对象的四个底层属性/">December 23rd 2018, 10:51:15 pm</a>
+            </p><p>原文链接：<a href="http://zhanghy7.github.io/2019/01/13/2019目标/">http://zhanghy7.github.io/2019/01/13/2019目标/</a>
+            </p><p>发表日期：<a href="http://zhanghy7.github.io/2019/01/13/2019目标/">January 13th 2019, 2:05:48 pm</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2019/01/13/2019目标/">January 14th 2019, 2:46:46 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -440,17 +445,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2018/12/12/记一次git-stash被误删之后找回的经历/" title="记一次git stash被误删之后找回的经历">
-                    <div class="nextTitle">记一次git stash被误删之后找回的经历</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2018/12/12/es6之修饰器/" title="es6之修饰器">
-                    <div class="prevTitle">es6之修饰器</div>
+                <a href="/2019/01/08/vue项目webpack打包优化/" title="webpack打包优化">
+                    <div class="prevTitle">webpack打包优化</div>
                 </a>
             
         </li>
@@ -569,7 +569,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js对象的六个底层属性"><span class="toc-number">1.</span> <span class="toc-text">js对象的六个底层属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#defineProperty"><span class="toc-number">1.1.</span> <span class="toc-text">defineProperty</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#configurable"><span class="toc-number">1.1.1.</span> <span class="toc-text">configurable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#enumerable"><span class="toc-number">1.1.2.</span> <span class="toc-text">enumerable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#value"><span class="toc-number">1.1.3.</span> <span class="toc-text">value</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#writable"><span class="toc-number">1.1.4.</span> <span class="toc-text">writable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get"><span class="toc-number">1.1.5.</span> <span class="toc-text">get</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-number">1.1.6.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-number">1.1.7.</span> <span class="toc-text">例子</span></a></li></ol></li></ol></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

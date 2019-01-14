@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>vue之自定义事件和参数$event · zhanghy7</title>
+    <title>vue · zhanghy7</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">苏秦陶侃博客</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">vue之自定义事件和参数$event</a>
+                <a href="#" class="post-name">vue</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            vue之自定义事件和参数$event
+            vue
             <!-- 404 -->
             
         </h1>
@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">611</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -397,8 +397,16 @@ height:50vh;
     <article class="article-entry">
         <h1 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h1><h2 id="vue字符串模板和HTML模板"><a href="#vue字符串模板和HTML模板" class="headerlink" title="vue字符串模板和HTML模板"></a>vue字符串模板和HTML模板</h2><h3 id="HTML模板"><a href="#HTML模板" class="headerlink" title="HTML模板"></a>HTML模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 定义</span><br><span class="line">Vue.component(&apos;child&apos;, &#123;</span><br><span class="line">// 在 JavaScript 中使用 camelCase</span><br><span class="line">props: [&apos;myMessage&apos;],</span><br><span class="line">template: &apos;&lt;span&gt;&#123;&#123; myMessage &#125;&#125;&lt;/span&gt;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 使用</span><br><span class="line">&lt;!-- 在 HTML 中使用kebab-case --&gt;</span><br><span class="line">&lt;child my-message=&quot;hello!&quot;&gt;&lt;/child&gt;</span><br></pre></td></tr></table></figure>
-<p>html模板概念：通过template:定义的组件。要求不能使用驼峰命名，必须使用中划线命名；原因是HTML不区分大小写，只有写成kebab-case形式才有效，js会去寻找</p>
-<h2 id="vue自定义事件"><a href="#vue自定义事件" class="headerlink" title="vue自定义事件"></a>vue自定义事件</h2><h3 id="铺垫—组件通信"><a href="#铺垫—组件通信" class="headerlink" title="铺垫—组件通信"></a>铺垫—组件通信</h3><p>父子组件自定义事件：父组件通过v-on绑定事件a，子组件中通过<code>this.$emit(name[,args])</code>触发。</p>
+<h4 id="html模板概念"><a href="#html模板概念" class="headerlink" title="html模板概念"></a>html模板概念</h4><p>通过template:定义的组件。</p>
+<h4 id="写法："><a href="#写法：" class="headerlink" title="写法："></a>写法：</h4><p>要求不能使用驼峰命名，必须使用中划线命名；</p>
+<h4 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h4><p>HTML不区分大小写，使用HTML模板的组件会在浏览器初始加载的时候就被渲染，所以需要遵守HTML规则，否则将渲染失败，而Vue需要等到初次渲染完毕后才能拿到DOM，进行DOM的模板插入。</p>
+<h2 id="vue中data为函数的原因"><a href="#vue中data为函数的原因" class="headerlink" title="vue中data为函数的原因"></a>vue中data为函数的原因</h2><p>因为正常情况下data需要的是一个对象，但是对象是引用类型的，如果有超过一个组件实例，那么改变一个的数据就会引发连锁效应，所以这里vue很聪明的把data定义为一个函数，利用这个函数返回新的对象，每个对象就是独立的。</p>
+<h2 id="vue、react方法写法"><a href="#vue、react方法写法" class="headerlink" title="vue、react方法写法"></a>vue、react方法写法</h2><p><del>由于es6的箭头函数在定义的时候就已经决定了this指向，在组件内定义方法的时候this是指向window的，所以需要使用es5进行方法定义，这样就可以在使用的时候动态指向this。react中的话可以可以在constructor中绑定this。</del></p>
+<p>vue中组件中所有方法中的this都被绑定到他自身的实例了。。</p>
+<h2 id="vue中两种组件注册方式"><a href="#vue中两种组件注册方式" class="headerlink" title="vue中两种组件注册方式"></a>vue中两种组件注册方式</h2><h3 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h3><h2 id="为什么vue中注册全局组件要放在实例化之前"><a href="#为什么vue中注册全局组件要放在实例化之前" class="headerlink" title="为什么vue中注册全局组件要放在实例化之前"></a>为什么vue中注册全局组件要放在实例化之前</h2><p>简单来理解：vue你可以理解为一个对象模板，使用vue就需要new进行实例化，当你已经实例化了，再去改变模板有何意义？自然出不来</p>
+<p>深层原理：vue本质上就是使用Vue构造函数实例化一个对象，对象内部会去处理所有的模板以及数据，在实例化完毕之后再去改变构造函数，还想让之前实例化的对象中拥有新添加的东西那肯定是不行的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ex:</span><br><span class="line">	function Person(name) &#123;</span><br><span class="line">    	this.name=name</span><br><span class="line">    &#125;</span><br><span class="line">    Person.prototype.isMan=&apos;no&apos;</span><br><span class="line">    person = new Person(&apos;Jack&apos;)</span><br><span class="line">    // Person &#123;name: &quot;Jack&quot;&#125;</span><br><span class="line">    </span><br><span class="line">    // 实例化之后再去修改原型就对之前的person实例无效了。。</span><br><span class="line">    Person.prototype.getName = function () &#123;console.log(this.name)&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="vue中is"><a href="#vue中is" class="headerlink" title="vue中is"></a>vue中is</h2><p>就是有些元素内部不能使用自定义标签或者自定义标签内也不能放某些特殊的标签，这时候就要用is代替一下，让html语法符合规则验证。is属于指定要在内部使用的标签。</p>
+<h2 id="vue中v-model原理，input事件"><a href="#vue中v-model原理，input事件" class="headerlink" title="vue中v-model原理，input事件"></a>vue中v-model原理，input事件</h2><h2 id="vue自定义事件"><a href="#vue自定义事件" class="headerlink" title="vue自定义事件"></a>vue自定义事件</h2><h3 id="铺垫—组件通信"><a href="#铺垫—组件通信" class="headerlink" title="铺垫—组件通信"></a>铺垫—组件通信</h3><p>父子组件自定义事件：父组件通过v-on绑定事件a，子组件中通过<code>this.$emit(name[,args])</code>触发。</p>
 <p><a href="https://github.com/Kelichao/vue.js.2.0/issues/19" target="_blank" rel="noopener">非父子组件</a>通过定义一个中央事件总线eventBus，在组件A中通过<code>eventBus.$on(name,callback)</code>绑定，在组件B中通过<code>eventBus.$emit(name[,args])</code>触发</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Vue()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发组件 A 中的事件</span></span><br><span class="line">bus.$emit(<span class="string">'id-selected'</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在组件 B 创建的钩子中监听事件</span></span><br><span class="line">bus.$on(<span class="string">'id-selected'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="一、不传参"><a href="#一、不传参" class="headerlink" title="一、不传参"></a>一、不传参</h3><p>直接通过<code>this.$emit</code>或者<code>eventBus.$emit</code>触发</p>
@@ -430,7 +438,7 @@ height:50vh;
             <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
             </p><p>原文链接：<a href="http://zhanghy7.github.io/2019/01/04/vue之自定义事件和参数$event/">http://zhanghy7.github.io/2019/01/04/vue之自定义事件和参数$event/</a>
             </p><p>发表日期：<a href="http://zhanghy7.github.io/2019/01/04/vue之自定义事件和参数$event/">January 4th 2019, 9:19:35 pm</a>
-            </p><p>更新日期：<a href="http://zhanghy7.github.io/2019/01/04/vue之自定义事件和参数$event/">January 14th 2019, 12:13:35 pm</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2019/01/04/vue之自定义事件和参数$event/">January 14th 2019, 6:18:55 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -567,7 +575,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue"><span class="toc-number">1.</span> <span class="toc-text">vue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue字符串模板和HTML模板"><span class="toc-number">1.1.</span> <span class="toc-text">vue字符串模板和HTML模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML模板"><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue自定义事件"><span class="toc-number">1.2.</span> <span class="toc-text">vue自定义事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#铺垫—组件通信"><span class="toc-number">1.2.1.</span> <span class="toc-text">铺垫—组件通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、不传参"><span class="toc-number">1.2.2.</span> <span class="toc-text">一、不传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、传参"><span class="toc-number">1.2.3.</span> <span class="toc-text">二、传参</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#监听自定义事件的时候已经传入参数"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">监听自定义事件的时候已经传入参数</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue"><span class="toc-number">1.</span> <span class="toc-text">vue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue字符串模板和HTML模板"><span class="toc-number">1.1.</span> <span class="toc-text">vue字符串模板和HTML模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML模板"><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML模板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html模板概念"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">html模板概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写法："><span class="toc-number">1.1.1.2.</span> <span class="toc-text">写法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原因："><span class="toc-number">1.1.1.3.</span> <span class="toc-text">原因：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中data为函数的原因"><span class="toc-number">1.2.</span> <span class="toc-text">vue中data为函数的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue、react方法写法"><span class="toc-number">1.3.</span> <span class="toc-text">vue、react方法写法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中两种组件注册方式"><span class="toc-number">1.4.</span> <span class="toc-text">vue中两种组件注册方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局注册"><span class="toc-number">1.4.1.</span> <span class="toc-text">全局注册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么vue中注册全局组件要放在实例化之前"><span class="toc-number">1.5.</span> <span class="toc-text">为什么vue中注册全局组件要放在实例化之前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中is"><span class="toc-number">1.6.</span> <span class="toc-text">vue中is</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue中v-model原理，input事件"><span class="toc-number">1.7.</span> <span class="toc-text">vue中v-model原理，input事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue自定义事件"><span class="toc-number">1.8.</span> <span class="toc-text">vue自定义事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#铺垫—组件通信"><span class="toc-number">1.8.1.</span> <span class="toc-text">铺垫—组件通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一、不传参"><span class="toc-number">1.8.2.</span> <span class="toc-text">一、不传参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、传参"><span class="toc-number">1.8.3.</span> <span class="toc-text">二、传参</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#监听自定义事件的时候已经传入参数"><span class="toc-number">1.8.3.1.</span> <span class="toc-text">监听自定义事件的时候已经传入参数</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -1000,9 +1008,59 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 34
         </div>
         <!-- search  -->
         
@@ -1018,6 +1076,16 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href="/2019/01/14/css/">css常见问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href="/2019/01/14/js之事件/">js之事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">01/13</span><a class="archive-post-title" href="/2019/01/13/2019目标/">[Untitled Post]</a>
         </li>
     
@@ -1028,7 +1096,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2019/01/04/vue之自定义事件和参数$event/">vue之自定义事件和参数$event</a>
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2019/01/04/vue之自定义事件和参数$event/">vue</a>
         </li>
     
     
@@ -1162,17 +1230,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
         </li>
     
     
@@ -1192,9 +1260,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
     
-        <span class="sidebar-tag-name" data-tags="js"><span class="iconfont-archer">&#xe606;</span>js</span>
-    
         <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
+    
+        <span class="sidebar-tag-name" data-tags="js"><span class="iconfont-archer">&#xe606;</span>js</span>
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
@@ -1202,11 +1270,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
     
+        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+    
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
-    
-        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1243,27 +1311,27 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
     
-        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
+        <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
     
         <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
     
         <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
     
+        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
+    
         <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
-    
-        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
-    
-        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
     
         <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
     
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
+    
         <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
-        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
-    
-        <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
+        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
     
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
+    
+        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

@@ -346,6 +346,41 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/12/22/react项目实现的ssr/">
+            
+                <span>react项目实现的ssr</span>
+        </a>
+        <div class="abstract-content">
+            react项目实现的ssr名词解释
+同构：开发一套多个平台都可以跑的代码，例如同时可以在client和node端跑。https://juejin.im/entry/5b1631085188257d492adc9e
+ssr(server-side rendering)：服务端渲染
+
+关键APIreact提供了四个方法将虚拟dom转为html文本：
+服务器端客户端皆可用：
+
+ReactDOMServer.renderToString(element)
+ReactDOMServer.renderToStaticMarkup(element)
+
+服务器端可用：
+
+ReactDOMServer.r...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/22</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/12/21/你经常提到的SEO你知道懂吗？/">
             
                 <span>SEO</span>
@@ -433,18 +468,14 @@ segment总结
 npm link软链方式进行新模块的使用(包括项目内的使用和直接使用模块)软链方式(npm link):https://github.com/atian25/blog/issues/17
 模块调试vscode
 跟上图这样配置好之后在代码中打断点，再到debugger模式这块点击“启动调试”即可。
+遇到的问题
+args参数配置的也没错，启动之后就是不进断点
+
+解决：检查program的值是否为项目的启动文件。
 
 这里launch.json中常用参数：
 
-args:命令行工具中传入的参数。
-
-
-webStormrun=&gt;edit configuration
-
-参考文献
-
-
-...
+args:命...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -601,45 +632,6 @@ git show + 上图打出来的key（此处我是从后往前一个一个查的）
         <a class="post-tag" href="javascript:void(0);" data-tags="git">git</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="问题及解决">问题及解决</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/12/js对象的四个底层属性/">
-            
-                <span>js对象属性的控制</span>
-        </a>
-        <div class="abstract-content">
-            js对象的六个底层属性js中有两个个可以修改或者定义对象属性的方法：defineProperty(object,name,discriptor)和defineProperties(object, props)。
-defineProperty参数解释：
-
-object：要操作的对象
-name：要定义或修改的属性的名称。
-discriptor：是个对象，其中包含四个用于操作第二步中name的属性。
-
-返回值：
-　　被传递给函数的修改后的对象
-下边分别看一下discriptor中都有哪四个属性，它们分别有什么作用：
-configurable这个属性用于控制此属性是否可被修改或删除，为true时...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="js">js</a>
     
 </div>
             
@@ -1217,9 +1209,68 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 34
+        Total : 35
         </div>
         <!-- search  -->
         
@@ -1232,6 +1283,11 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href="/2019/01/15/npm/">npm</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1379,22 +1435,22 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
         </li>
     
     
@@ -1425,15 +1481,15 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
-    
         <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
     
-        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+        <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
     
         <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1468,29 +1524,29 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
-    
         <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
-    
-        <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
-    
-        <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
     
         <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
     
+        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
+    
+        <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
+    
         <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
     
-        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
-    
-        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
-    
-        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
+        <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
     
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
     
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
     
         <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+    
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>

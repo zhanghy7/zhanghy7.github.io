@@ -346,6 +346,140 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/19/由一个bug引发对axios的刨根问底/">
+            
+                <span>由一个bug引发对axios的刨根问底</span>
+        </a>
+        <div class="abstract-content">
+            由一个bug引发对axios的刨根问底
+📒背景简述：
+　　在做一个vue技术栈的h5项目的时候，出现了这么一个bug，不同路由下的请求接口是同一个，如果在网络较慢的情况下进行路由的快速切换就会导致两个路由下的数据混在一起😟😟😟。以下是从解决这个bug引发的一系列思考😇
+一、问题现象：
+　　网络调为mid-tier mobile后，快速切换路由会发现第二个路由(待客户签署)的数据和第一个路由(起草协议)数据发生了累加：
+二、解决效果：
+　　添加了路由切换后取消请求的功能后数据正常：
+三、具体实现方式：
+
+初始入口文件中通过axios生成cancelToken:
+
+axios的拦截...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/19/浏览器相关/">
+            
+                <span>浏览器相关</span>
+        </a>
+        <div class="abstract-content">
+            浏览器相关浏览器内核相关（进程和线程）：https://imweb.io/topic/58e3bfa845e5c13468f567d5
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/19</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/04/02/细说前端缓存/">
+            
+                <span>细说浏览器缓存</span>
+        </a>
+        <div class="abstract-content">
+            细说浏览器缓存什么是浏览器缓存？　　概念：浏览器缓存（Browser Caching）是为了节约网络的资源加速浏览，浏览器在用户磁盘上对最近请求过的文档进行存储，当访问者再次请求这个页面时，浏览器就可以从本地磁盘显示文档，这样就可以加速页面的阅览。  作用：加速页面的阅览  分类：分为协商缓存和强制缓存两类。  存储位置：
+怎么用？原理是什么？
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/02</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/15/git相关/">
+            
+                <span>git相关</span>
+        </a>
+        <div class="abstract-content">
+            git相关.gitignore忽略文件无效.gitignore文件只有在未进行git操作之前才有效，所以对已经执行过add、commit或者push的文件夹或者文件进行ignore是无效的，需要去除git track(跟踪)，去除的方法
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/03/12/js基础知识点/">
+            
+                <span>js基础知识点</span>
+        </a>
+        <div class="abstract-content">
+            js基础知识点字符串截取
+substr(start,length)–被逐渐废弃的api，不建议使用
+substring(start,end) start或者end为负变为0；start&gt;end位置互换
+slice(start,end) start、end为负变为length+start
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/12</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/03/07/http协议相关/">
             
                 <span>http协议相关</span>
@@ -429,6 +563,10 @@
         </a>
         <div class="abstract-content">
             npmnpm中锁的问题
+查看安装过的npm包
+当前文件夹下的包：npm ls –depth 0
+全局安装的包：npm ls -g –depth 0
+
 
         </div>
         <div class="abstract-post-meta">
@@ -466,144 +604,11 @@ onchange事件只有在元素失去焦点时候触发。
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/01/14/css/">
-            
-                <span>css常见问题</span>
-        </a>
-        <div class="abstract-content">
-            css常见问题inline-block元素间距留白问题
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/14</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/01/13/2019目标/">
-            
-                <span>[Untitled Post]</span>
-        </a>
-        <div class="abstract-content">
-            19年目标：
-搞点东西出来：
-痛点：hexo admin插件另起标题时一打字连带的打出了上一个标题中的所有正文。。。
-痛点：使用北京公交集团查询公交的时候信息不准确，导致上班迟到。具体情况是从家往出走看着再有三站就到我这了，结果等了10分钟后再看显示还有10站。。心里一万匹草泥马。。。有这时间我都快走到地铁站了。。。
-思考：自己写一个查询实时公交的东西
-技术上：
-
-性能优化方面，着重学习谷歌开发者网站。
-自己负责的项目保质保量完成，delay次数少于2次，bug量能够减少到3个每天。
-项目代码都有注释、对所做项目有使用和开发已经项目阶段性完成的的文档整理、总结，
-vue、react框架的...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/01/08/vue项目webpack打包优化/">
-            
-                <span>webpack打包优化</span>
-        </a>
-        <div class="abstract-content">
-            webpack打包优化优化前：
-
-https://juejin.im/post/5c1fa158f265da613c09cb36?utm_medium=fe&amp;utm_source=weixinqun
-
-cacheDirectory:https://webpack.docschina.org/loaders/babel-loader/
-
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/01/04/vue之自定义事件和参数$event/">
-            
-                <span>vue</span>
-        </a>
-        <div class="abstract-content">
-            vuevue字符串模板和HTML模板HTML模板123456// 定义Vue.component(&apos;child&apos;, &#123;// 在 JavaScript 中使用 camelCaseprops: [&apos;myMessage&apos;],template: &apos;&lt;span&gt;&#123;&#123; myMessage &#125;&#125;&lt;/span&gt;&apos;&#125;)
-123// 使用&lt;!-- 在 HTML 中使用kebab-case --&gt;&lt;child my-message=&quot;hel...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/01/04/html知识点/">
-            
-                <span>html知识点</span>
-        </a>
-        <div class="abstract-content">
-            
-html知识点伪类、伪元素input、img、iframe不支持伪元素，因为伪类是要插入到容器内部一起渲染的，而这几个标签是不能包含其他元素的。
-行内元素margin和padding无效问题margin和padding对行内元素都是左右有效、上下无效，如果需要设置上下，需要把它改为非行内元素，例如inline-block
-浮动浮动的定义：使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停了下来。首先元素浮动后，产生的特性1、块元素在一排显示2、内联元素支持宽高3、不设置宽度，内容撑开宽度4、脱离文档流5、提升层级半层
-凡是float属性值不为none,元素disp...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">NEXT &#62;</a>
+    </nav>
     
 </main>
             <!-- profile -->
@@ -1226,9 +1231,80 @@ html知识点伪类、伪元素input、img、iframe不支持伪元素，因为�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 43
         </div>
         <!-- search  -->
         
@@ -1241,6 +1317,31 @@ html知识点伪类、伪元素input、img、iframe不支持伪元素，因为�
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/由一个bug引发对axios的刨根问底/">由一个bug引发对axios的刨根问底</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/浏览器相关/">浏览器相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/细说前端缓存/">细说浏览器缓存</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2019/03/15/git相关/">git相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href="/2019/03/12/js基础知识点/">js基础知识点</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1408,12 +1509,12 @@ html知识点伪类、伪元素input、img、iframe不支持伪元素，因为�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
@@ -1509,15 +1610,15 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
     
-        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
-    
         <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
-    
-        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
     
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
         <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
     

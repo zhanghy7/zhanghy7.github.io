@@ -359,6 +359,145 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/12/19/js之原型链/">
+            
+                <span>js之原型链</span>
+        </a>
+        <div class="abstract-content">
+            js之原型链js中万物皆对象吗
+由一个简单的对象实例说起：
+12345678910111213141516171819function Person (name, age) &#123;  this.name = name  this.age = age&#125;Person.prototype.getName = function () &#123;  console.log(this.name)&#125;const person = new Person('Tom', 12)person.getName() // Tomconsole.log(person.__proto__) ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/19</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/18/css基础之nth-child和nth-of-type/">
+            
+                <span>css基础之nth-child和nth-of-type</span>
+        </a>
+        <div class="abstract-content">
+            css基础nth-child和nth-of-type
+参考文献
+
+匹配除第一个元素外的子元素
+segment总结
+
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/17/node包调试/">
+            
+                <span>node包调试</span>
+        </a>
+        <div class="abstract-content">
+            node包调试我们在开发node模块的时候一定会需要调试，那么都有哪些方式调试node模块呢？今天只谈现在的最新的调试方式:
+npm link软链方式进行新模块的使用(包括项目内的使用和直接使用模块)软链方式(npm link):https://github.com/atian25/blog/issues/17
+模块调试vscode
+跟上图这样配置好之后在代码中打断点，再到debugger模式这块点击“启动调试”即可。
+遇到的问题args参数配置的也没错，启动之后就是不进断点  解决：检查program的值是否为项目的启动文件。
+通过url请求才能触发的调试改怎么做不用配置launch....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/17/计算机基础知识/">
+            
+                <span>计算机基础知识</span>
+        </a>
+        <div class="abstract-content">
+            计算机基础知识计算机存储与软硬链接　　文件存储在硬盘上，硬盘存储的最小单位是扇区（sector，每个扇区可以存储512B大小的数据）。而操作系统读取文件按照块来读取（多个连续的扇区），也就是说操作系统读取文件的最小存取单位是块（block，通常是4KB）。
+　　除了存储文件数据外，计算机还会存储文件的元信息（文件的大小、创建者、文件的时间戳、读写执行的权限等信息），这种存储文件元信息的结构就叫inode，我们可以使用stat来查看文件的元信息。每一个inode都有一个唯一的id，linux系统中通过inode的号码来识别文件。在linux中目录也是一种文件，该文件由inode和文件名组成...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="计算机基础">计算机基础</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2018/12/15/对全局node包的灵魂拷问/">
+            
+                <span>对全局node包的灵魂拷问</span>
+        </a>
+        <div class="abstract-content">
+            Why can you run anywhere  after ‘npm i -g ‘?　　我们经常在全局安装node包之后在任意的目录下都能顺利的执行该命令，比如node i -g nodeA，之后就可以在任意目录下使用nodeA这个命令，但这么神奇的现象是为什么呢？
+  首先我们要知道什么命令才能在全局运行，这里就要涉及shell相关的知识了，其实是这样的：在linux系统中有这么几个地方的脚本是可以在任意目录下运行的：
+    全局安装后的node包的二进制脚本文件其实都存放在/usr/local/bin下，比我的所有的全局命令：
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/15</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/12/14/liver-server搭建本地临时服务/">
             
                 <span>liver-server搭建本地临时服务</span>
@@ -513,152 +652,10 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/mysql常用命令/">
-            
-                <span>mysql常用命令</span>
-        </a>
-        <div class="abstract-content">
-            mysql常用命令因为我用的是mac，可能某些命令会跟windows上不一样。
-启动、重启和关闭前提是通过命令行启动服务的才能通过命令行关闭和重启。
-启动：/usr/local/mysql/support-files/mysql.server start```12重启：```sudo /usr/local/mysql/support-files/mysql.server restart
-关闭：/usr/local/mysql/support-files/mysql.server stop```1234## 登录、退出本地登录： ```mysql -u root -p
-(以用户名root身...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/mac命令行配置文件/">
-            
-                <span>mac命令行配置文件</span>
-        </a>
-        <div class="abstract-content">
-            ~/.bash_profile
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/10/api接口管理系统之rap2/">
-            
-                <span>api接口管理系统之rap2</span>
-        </a>
-        <div class="abstract-content">
-            简书
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/10</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/07/http之数据传输原理和content-type/">
-            
-                <span>http之数据传输原理和content-type</span>
-        </a>
-        <div class="abstract-content">
-            http之数据传输原理和content-type数据到底是以什么形式在网络中进行传输的？　　大家都知道，前后端通过数据请求和响应进行交互，进而完成整个网站功能。在这个过程中数据的传输就变得异常重要了，由此引发的困惑我许久的问题：“这个数据是以什么形式传递的呢？”
-　　网上的解释是网络数据是以 http协议(超文本协议) 进行传输的，那么这个数据在传递过程中是以文本形式传输的吗？答案是非也，所有网络数据都是以二进制流进行传输的，至于我们捕获到的文本形式的的请求其实是二进制数据流经过编辑器等处理过的文本信息。
-  注意点：http的超级文本其实就是二进制在http协议中的存在形式
-常见的请求...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/07</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="http">http</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/12/06/非暴力沟通读书笔记一/">
-            
-                <span>非暴力沟通读书笔记一</span>
-        </a>
-        <div class="abstract-content">
-            非暴力沟通读书笔记一四要素非暴力沟通的要素：观察、感受、需要、要求。
-　　我们在沟通过程中按照这四个方式把自己的想法完整的表达出来，这样的表达方式既能把自己的思想表达出来又能让对方明白你的需求，避免因为某一环节的缺失造成双方的沟通障碍，进而引发矛盾。
-
-精彩故事片段
-
-　　一位母亲对青春期的儿子说：“弗利克斯，看到咖啡桌角下你的两双脏袜子，我很不高兴，我更需要的是干净的环境，请你把它们放到洗衣机里去洗掉”。
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/12/06</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&#60; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1379,9 +1376,80 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 38
+        Total : 43
         </div>
         <!-- search  -->
         
@@ -1394,6 +1462,31 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/由一个bug引发对axios的刨根问底/">由一个bug引发对axios的刨根问底</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/浏览器相关/">浏览器相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/细说前端缓存/">细说浏览器缓存</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2019/03/15/git相关/">git相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href="/2019/03/12/js基础知识点/">js基础知识点</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1561,12 +1654,12 @@ configurable这个属性用于控制此属性是否可被修改或删除，为tr
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
         </li>
     
     
@@ -1662,15 +1755,15 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
     
-        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
-    
         <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
-    
-        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
         <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
     
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
         <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
     
         <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
     

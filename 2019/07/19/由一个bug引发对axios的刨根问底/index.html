@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="zhanghy7">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="zhanghy7">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>由一个bug引发对axios的刨根问底 · zhanghy7</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/you.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin="">
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin="">
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">苏秦陶侃博客</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">由一个bug引发对axios的刨根问底</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">苏秦陶侃博客</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            由一个bug引发对axios的刨根问底
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/07/19</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>由一个bug引发对axios的刨根问底</p>
+<p>📒背景简述：</p>
+<p>　　在做一个vue技术栈的h5项目的时候，出现了这么一个bug，不同路由下的请求接口是同一个，如果在网络较慢的情况下进行路由的快速切换就会导致两个路由下的数据混在一起😟😟😟。以下是从解决这个bug引发的一系列思考😇</p>
+<p>一、问题现象：</p>
+<p>　　网络调为mid-tier mobile后，快速切换路由会发现第二个路由(待客户签署)的数据和第一个路由(起草协议)数据发生了累加：</p>
+<p>二、解决效果：</p>
+<p>　　添加了路由切换后取消请求的功能后数据正常：</p>
+<p>三、具体实现方式：</p>
+<ol>
+<li><p>初始入口文件中通过axios生成cancelToken:</p>
+</li>
+<li><p>axios的拦截器的request配置中添加参数cancelToken</p>
+</li>
+</ol>
+<p>四、原理分析：</p>
+<p>1.axios简介</p>
+<p>首先我们根据axios官方文档可以知道，axios原生支持取消请求：</p>
+<p>axios文档里介绍的取消axios请求有以下两种方式：</p>
+<pre><code>// 第一种：使用 CancelToken
+const { CancelToken, isCanCel } = axios;
+const source = CancelToken.source();
+
+axios.get(&apos;/user/12345&apos;, {
+  cancelToken: source.token
+}).catch(thrown =&gt; {
+  if (isCancel(thrown)) {
+      // 获取 取消请求 的相关信息
+    console.log(&apos;Request canceled&apos;, thrown.message);
+  } else {
+    // 处理其他异常
+  }
+});
+
+axios.post(&apos;/user/12345&apos;, {
+  name: &apos;new name&apos;
+}, {
+  cancelToken: source.token
+})
+
+// 取消请求。
+source.cancel(&apos;Operation canceled by the user.&apos;);
+
+// 第二种：还可以通过传递一个 executor 函数到 CancelToken 的构造函数来创建 cancel token：
+const CancelToken = axios.CancelToken;
+let cancel;
+
+axios.get(&apos;/user/12345&apos;, {
+  cancelToken: new CancelToken(function executor(c) {
+    // executor 函数接收一个 cancel 函数作为参数
+    cancel = c;
+  })
+});
+
+// 取消请求
+cancel();
+</code></pre><p>那么它究竟是怎么做到的？</p>
+<p>第一步我们先要清楚一个请求在axios的工作流程，像一个管道一样：</p>
+<p>　　看上图发现request发出之前有个interceptors，查看axios文档不难发现，这个interceptors提供了设置请求或响应被处理之前拦截到请求或响应去处理他们（其实就是个promise中间件）：</p>
+<ol start="2">
+<li>源码探究</li>
+</ol>
+<p>　　其实我们在开始的问题解决代码的贴图中就是使用了interceptors对request发出前添加了cancelToken配置，那么问题来了：</p>
+<p><1>.为什么在这里加了cancelToken的配置就可以实现取消未完成的请求呢？</1></p>
+<p><2>. 是axios.interceptors.request的魔力吗，怎么会如此神奇呢？</2></p>
+<p>带着问题我们一步一步看👀：</p>
+<p><1>、各类请求的公共方法request</1></p>
+<p>　　在源码文件core/Axios.js有这么几行核心代码，无论请求方法是什么类型的都会走一个request方法：</p>
+<p>❓❓❓那么这个request到底做了什么？</p>
+<p>📝粗略的解释上图代码：</p>
+<ol>
+<li>定义了一个数组chain，这个数组中包含了dispatchRequest对象和undefined两个元素。</li>
+<li>将请求传入的config对象转为promise对象。</li>
+<li>经过拦截器处理后的chain变为:<br>[dispatchRequest, undefined,<br>interceptor.response.fulfilled,<br>interceptor.response.rejected]</li>
+<li>返回一个promise链式调用之后的的执行之后的返回结果：<br>Promise.resolve(config)<br>.then(interceptor.request.fulfilled, interceptor.request.rejected)<br>.then(dispatchRequest, undefined)<br>.then(interceptor.response.fulfilled, interceptor.response.rejected)</li>
+</ol>
+<p>下面用一幅图直观的描述axios的promise链式调用：</p>
+<p>　　看到这里想必大家都会有疑问，拦截器相关的interceptor.request.fullfilled和interceptor.request.rejected等是什么，怎么来的，有什么用？请看下一个Interceptor源码解析。</p>
+<p><2>、Interceptor源码解析</2></p>
+<p>❓❓❓interceptor.request.fullfilled和interceptor.request.rejected是什么？</p>
+<p>答：是两个函数，分别是promise在resolve和reject状态的回调函数。</p>
+<p>interceptor.request.fullfilled和interceptor.request.rejected怎么来的，有什么用？</p>
+<ol>
+<li><p>源码里提供了InterceptorManeger.js文件，用来创建interceptor:</p>
+</li>
+<li><p>创建interceptor.request.fullfilled和interceptor.request.rejected过程：</p>
+</li>
+</ol>
+<p>此图的详细解释如下：</p>
+<pre><code>/*
+Axios.js核心代码
+*/
+Axios.prototype.request = function request(config) {
+  ...
+// 在这里调用了forEach方法，而这个方法在下边InterceptorManager.js中
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    // 将参数interceptor加到chain数组头部
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+/*
+InterceptorManager.js文件核心代码
+*/
+function InterceptorManager() {
+  this.handlers = []; // 用来保存所有拦截器注册的函数
+}
+
+// 这个use方法用来给拦截器注册回调函数
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  // 这里的handles中存的是由fulfilled和rejected组成的object
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+...
+
+/* 
+    将所有handles中注册的函数{
+    fulfilled: fulfilled,
+    rejected: rejected
+  }，
+  遍历给fn(这里的fn可以理解为unshiftRequestInterceptors)执行一遍，
+  即作为unshiftRequestInterceptors函数的参数
+*/
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+/*
+utils.js核心代码
+*/
+function forEach(obj, fn) {
+  ...
+  if (isArray(obj)) {
+// fn(理解为unshiftRequestInterceptors)遍历执行，参数是this.handles中的元素
+    for (var i = 0, l = obj.length; i &lt; l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  }
+  ...
+}
+</code></pre><p>讲到这里还是没有看到cancelToken😒😒😒，接着往下看🤓。</p>
+<p><3>、dispatchRequest源码解析</3></p>
+<p>interceptor.request逻辑执行结束之后，就到dispatchRequest了，查看源码我们发现这才是真正发出请求的地方，截取的浏览器端发请求的核心代码如下：</p>
+<pre><code>/*
+dispatchRequest.js核心代码
+*/
+module.exports = function dispatchRequest(config) {
+  ...
+  // 这里的adapter其实就是获取发送请求的方式，浏览器中为xhr,node端为http
+  var adapter = config.adapter || defaults.adapter;
+
+  /* 
+    这里then参数中为promise的两个回调函数，那么adapter这个promise是什么样的,
+    请看下边的xhr.js源码分析
+  */
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason &amp;&amp; reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+</code></pre><p>　　其实这里不难发现第一次画的promise链式调用图中，在dispatchRequest函数内部又有promise的链式调用:</p>
+<p>这时候的promise链式调用就变成了这个样子：</p>
+<p>dispatchRequest分解后的形成了又一个以adapterPromise开始的promise链式调用，而这个adapter在浏览器中其实就是Xhr.js返回的promise对象，这里也是真正发出请求的地方。</p>
+<p>通过查看源码我们终于发现！！！其中有对cancelToken的处理逻辑！！！😻😻😻</p>
+<p>那么cancelToken到底是怎么起作用的? 请看下一节，xhr.js源码分析：</p>
+<p><4>、xhr.js源码解析</4></p>
+<pre><code>module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+...
+    if (config.cancelToken) {
+      /* 
+      如果config中有cancelToken参数，则讲onCanceled注册为             config.cancelToken.promise的resolve回调函数，在onCanceled方法中就可以取消请求，并将adapter.promise状态变为reject
+      */
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+...
+  });
+};
+</code></pre><p>　　😆其实看到这里大家应该已经看懂了，在这个cancelTokenPromise状态变为rejected的话整个promise链都变为rejected，请求也就会被取消掉。</p>
+<p>❓❓❓那么问题又来了，cancelToken.promise是什么，这个promise什么时候会执行resolve方法进行请求取消呢？请看下面的源码分析。</p>
+<p><5>、CancelToken源码解析</5></p>
+<pre><code>function CancelToken(executor) {
+...
+  var resolvePromise;
+  // 在这里将cancelToken.promise的resolve函数赋值给了resolvePromise变量
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  // 在执行executor这个方法时候会执行resolvePromise，即xhr.js中注册的onCancel，那什么时候会执行executor呢？请看接下里的source方法
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+...
+/*看看源码得知实际调用axios.cancelToken.source()方法生成取消令牌的时候实际上生成了包含两个属性(token，cancel)的对象，在执行cancel方法的时候就会执行上述方法executor，也就是说这里的cancel一执行就执行了onCancel方法，就会取消请求*/
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+</code></pre><p>　　在执行了cancel之后就会cancelToken.promise就变为reject了，~~整个promise调用就都是rejected了，接着adapter这个promise对象也变为reject了，整个promise链都为reject了，请求取消，game over🙃🙃🙃。</p>
+<p>用一幅图表示如下：</p>
+<p><6>、回头望月</6></p>
+<p>再回过头看看我们最开始的解决方案，有没有恍然大悟？</p>
+<p>　　其实我们的解决方式就是同一个路由下的请求公用一个canceltoken，虽然多个请求会生成多个promise链，但是在adapterPromise局部的cancelToken.promise却是同一个，这样在执行axios.cancelToken.source().cancel方法时候就会作用于全部promise链，一旦cancel一执行，所有未完成的请求都会取消，相对应的promise链都会变为rejected。</p>
+<ol>
+<li><p>初始入口文件中通过axios生成cancelToken:</p>
+</li>
+<li><p>axios的拦截器的request配置中添加参数cancelToken</p>
+</li>
+</ol>
+<p>五、思考：知道原理后我们能做什么？</p>
+<ol>
+<li>可以通过axios取消特定的未完成请求。</li>
+<li>学习axios对promise的妙用，比如参考axios请求取消的实现方式我们是不是也可以对fetch请求进行包装呢？</li>
+</ol>
+<p>参考文献：</p>
+<ol>
+<li><a href="https://github.com/axios/axios" target="_blank" rel="noopener">https://github.com/axios/axios</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest</a></li>
+</ol>
+
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://zhanghy7.github.io">zhanghy7</a>
+            </p><p>原文链接：<a href="http://zhanghy7.github.io/2019/07/19/由一个bug引发对axios的刨根问底/">http://zhanghy7.github.io/2019/07/19/由一个bug引发对axios的刨根问底/</a>
+            </p><p>发表日期：<a href="http://zhanghy7.github.io/2019/07/19/由一个bug引发对axios的刨根问底/">July 19th 2019, 2:35:56 pm</a>
+            </p><p>更新日期：<a href="http://zhanghy7.github.io/2019/07/19/由一个bug引发对axios的刨根问底/">July 19th 2019, 2:36:03 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/07/19/浏览器相关/" title="浏览器相关">
+                    <div class="prevTitle">浏览器相关</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:zhanghy7@aliyun.com" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/zhanghy7" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title="wechat">
+                  
+                  <img class="profile-qr" src="/assets/zhanghy7-wechat.jpeg">
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 43
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/由一个bug引发对axios的刨根问底/">由一个bug引发对axios的刨根问底</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/2019/07/19/浏览器相关/">浏览器相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href="/2019/04/02/细说前端缓存/">细说浏览器缓存</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2019/03/15/git相关/">git相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/12</span><a class="archive-post-title" href="/2019/03/12/js基础知识点/">js基础知识点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2019/03/07/http协议相关/">http协议相关</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/20</span><a class="archive-post-title" href="/2019/02/20/移动端问题/">移动端问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/19</span><a class="archive-post-title" href="/2019/02/19/js宏任务和微任务/">js宏任务和微任务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href="/2019/01/15/npm/">npm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href="/2019/01/14/css/">css常见问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/14</span><a class="archive-post-title" href="/2019/01/14/js之事件/">js之事件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span><a class="archive-post-title" href="/2019/01/13/2019目标/">[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/08</span><a class="archive-post-title" href="/2019/01/08/vue项目webpack打包优化/">webpack打包优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2019/01/04/vue之自定义事件和参数$event/">vue</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/04</span><a class="archive-post-title" href="/2019/01/04/html知识点/">html知识点</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href="/2018/12/25/移动端适配方案/">移动端适配方案</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href="/2018/12/25/css基础之文字宽高/">[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/24</span><a class="archive-post-title" href="/2018/12/24/css-页面布局/">css--页面布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/22</span><a class="archive-post-title" href="/2018/12/22/react项目实现的ssr/">react项目实现的ssr</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2018/12/21/你经常提到的SEO你知道懂吗？/">SEO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/19</span><a class="archive-post-title" href="/2018/12/19/js之原型链/">js之原型链</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/18</span><a class="archive-post-title" href="/2018/12/18/css基础之nth-child和nth-of-type/">css基础之nth-child和nth-of-type</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/node包调试/">node包调试</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/17</span><a class="archive-post-title" href="/2018/12/17/计算机基础知识/">计算机基础知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2018/12/15/对全局node包的灵魂拷问/">对全局node包的灵魂拷问</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href="/2018/12/14/liver-server搭建本地临时服务/">liver-server搭建本地临时服务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href="/2018/12/14/commond-is-not-found-mysql/">commond is not found: mysql</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href="/2018/12/12/记一次git-stash被误删之后找回的经历/">记一次git stash被误删之后找回的经历</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href="/2018/12/12/js对象的四个底层属性/">js对象属性的控制</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href="/2018/12/12/es6之修饰器/">es6之修饰器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mysql常用命令/">mysql常用命令</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/mac命令行配置文件/">mac命令行配置文件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/10</span><a class="archive-post-title" href="/2018/12/10/api接口管理系统之rap2/">api接口管理系统之rap2</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/07</span><a class="archive-post-title" href="/2018/12/07/http之数据传输原理和content-type/">http之数据传输原理和content-type</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/06</span><a class="archive-post-title" href="/2018/12/06/非暴力沟通读书笔记一/">非暴力沟通读书笔记一</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/02</span><a class="archive-post-title" href="/2018/12/02/细说margin负值/">细说margin负值</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/软件架构模式/">软件架构模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/专业英文单词学习/">专业英文单词学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/hybrid/">hybrid</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/vue使用笔记/">vue使用笔记</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/30</span><a class="archive-post-title" href="/2018/11/30/es6-class/">es6-class</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href="/2018/11/29/搭建个人博客-hexo/">搭建个人博客(hexo)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href="/2018/11/29/webStorm主题设置/">webStorm主题设置</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="问题"><span class="iconfont-archer">&#xe606;</span>问题</span>
+    
+        <span class="sidebar-tag-name" data-tags="http"><span class="iconfont-archer">&#xe606;</span>http</span>
+    
+        <span class="sidebar-tag-name" data-tags="js"><span class="iconfont-archer">&#xe606;</span>js</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="tools"><span class="iconfont-archer">&#xe606;</span>tools</span>
+    
+        <span class="sidebar-tag-name" data-tags="English"><span class="iconfont-archer">&#xe606;</span>English</span>
+    
+        <span class="sidebar-tag-name" data-tags="计算机基础"><span class="iconfont-archer">&#xe606;</span>计算机基础</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+    
+        <span class="sidebar-tag-name" data-tags="问题及解决"><span class="iconfont-archer">&#xe606;</span>问题及解决</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="shell"><span class="iconfont-archer">&#xe60a;</span>shell</span>
+    
+        <span class="sidebar-category-name" data-categories="css"><span class="iconfont-archer">&#xe60a;</span>css</span>
+    
+        <span class="sidebar-category-name" data-categories="javaScript"><span class="iconfont-archer">&#xe60a;</span>javaScript</span>
+    
+        <span class="sidebar-category-name" data-categories="javaScript/es6"><span class="iconfont-archer">&#xe60a;</span>javaScript/es6</span>
+    
+        <span class="sidebar-category-name" data-categories="hybrid"><span class="iconfont-archer">&#xe60a;</span>hybrid</span>
+    
+        <span class="sidebar-category-name" data-categories="js"><span class="iconfont-archer">&#xe60a;</span>js</span>
+    
+        <span class="sidebar-category-name" data-categories="vue"><span class="iconfont-archer">&#xe60a;</span>vue</span>
+    
+        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+    
+        <span class="sidebar-category-name" data-categories="react"><span class="iconfont-archer">&#xe60a;</span>react</span>
+    
+        <span class="sidebar-category-name" data-categories="css基础"><span class="iconfont-archer">&#xe60a;</span>css基础</span>
+    
+        <span class="sidebar-category-name" data-categories="react/ssr"><span class="iconfont-archer">&#xe60a;</span>react/ssr</span>
+    
+        <span class="sidebar-category-name" data-categories="宏观架构"><span class="iconfont-archer">&#xe60a;</span>宏观架构</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "zhanghy7"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
